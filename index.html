@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull to Light</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Playfair+Display:ital,wght@1,600&family=JetBrains+Mono:wght@400&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-container">
+        
+        <!-- Top Badge -->
+        <div class="badge">
+            <span>MICRO—INTERACTIONS</span>
+            <span class="dot">•</span>
+            <span>THEME TOGGLE</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 id="status-text">
+            <span class="block-text">Pull to</span>
+            <span class="italic-text">Light</span>
+        </h1>
+
+        <!-- Bottom Text -->
+        <p class="instruction">Pull the rope hard to change the theme</p>
+    </div>
+
+    <!-- SVG Overlay for Rope and Handle -->
+    <svg id="rope-canvas">
+        <path id="rope" d="" />
+        <!-- Capsule Handle: Rect with high border radius -->
+        <!-- Centered at 0,0 initially, moved by JS -->
+        <rect id="handle" x="-20" y="0" width="40" height="70" rx="20" ry="20" />
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+</html>

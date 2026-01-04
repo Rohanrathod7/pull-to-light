@@ -1,0 +1,141 @@
+:root {
+    --bg-color: #050505; /* Deep black */
+    --text-color: #ffffff;
+    --sub-color: #666666;
+    --accent-color: #7b61ff; /* Purple specific to reference */
+    --rope-color: #A0A0A0; /* Subtle grey for the rope */
+}
+
+body.light-mode {
+    --bg-color: #f2f2f2;
+    --text-color: #111111;
+    --sub-color: #999999;
+    --accent-color: #4a3aff;
+    --rope-color: #333333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    height: 100vh;
+    width: 100vw;
+}
+
+.content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Badge Style */
+.badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #4cd964; /* Green accent from image for 'EN' pill, or just theme accent */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    letter-spacing: 0.1em;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+body.light-mode .badge {
+    color: var(--accent-color);
+    border-color: rgba(0,0,0,0.1);
+}
+
+/* Main Typography */
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.9;
+    margin: 0;
+}
+
+.block-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 7rem; /* Larger as requested */
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    display: block;
+    /* text-transform: uppercase; REMOVED to allow sentence case */
+}
+
+.italic-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem; /* Smaller as requested */
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent-color);
+    display: block;
+    margin-top: -1.5rem; /* Even closer to the main text */
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 30px rgba(123, 97, 255, 0.3);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.instruction {
+    font-size: 0.9rem;
+    color: var(--sub-color);
+    margin-top: 2rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* SVG Elements */
+svg#rope-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    overflow: visible;
+    pointer-events: none;
+}
+
+path#rope {
+    fill: none;
+    stroke: var(--rope-color);
+    stroke-width: 2; /* Thinner rope */
+    stroke-linecap: round;
+    transition: stroke 0.4s ease;
+    pointer-events: none;
+}
+
+/* Capsule Handle */
+rect#handle {
+    fill: var(--accent-color); /* Solid fill or we usually need defs for gradient, solid is fine for now */
+    stroke: none;
+    cursor: grab;
+    transition: fill 0.4s ease;
+    pointer-events: auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+rect#handle:active {
+    cursor: grabbing;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+    fill: #9d8aff; /* Slightly lighter on press */
+}
