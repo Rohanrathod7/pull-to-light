@@ -34,7 +34,7 @@ An aesthetic, minimal theme toggle interaction featuring advanced rope physics a
 ![Light Mode](./media/Light_mode.png)
 
 ### Video Walkthrough
-[Watch the Walkthrough Video](./media/walkthrougth_video.mp4)
+[Watch the Walkthrough Video](./media/walkthrought_edited.mp4)
 
 ---
 
